@@ -41,7 +41,7 @@ function updateProductBoxColor(selectedItem) {
   // Seçilen ürünün daha önce seçilip seçilmediğini kontrol et
   if (!selectedItem.classList.contains("highlight")) {
     // Eğer daha önce seçilmemişse, sarı yap
-    selectedItem.style.backgroundColor = "yellow";
+    selectedItem.style.backgroundColor = "#dbc310";
   } else {
     // Eğer daha önce seçilmişse, yeşile dön
     selectedItem.style.backgroundColor = "lightgreen";
@@ -177,7 +177,7 @@ quantityInput.addEventListener("input", function () {
   if (quantity > 0) {
     const productItem = document.querySelector(".product-item.selected");
     if (productItem) {
-      productItem.style.backgroundColor = "yellow"; // Simit kutusunun rengini sarı olarak değiştir
+      productItem.style.backgroundColor = "#dbc310"; // Simit kutusunun rengini sarı olarak değiştir
     }
   }
 });
