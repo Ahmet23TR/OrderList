@@ -235,3 +235,25 @@ footer {
 .product-list {
   margin-right: 690px; /* Sağdaki panelin genişliği + biraz boşluk */
 }
+
+/**************************/
+/* BELOW 944px (Tablets)*/
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 100%;
+  }
+
+  .product-list {
+    margin-right: 420px; /* Sağdaki panelin genişliği + biraz boşluk */
+  }
+
+  #logo {
+    width: 200px; /* Resmin genişliği */
+    height: 170px; /* Otomatik yükseklik ayarı */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
