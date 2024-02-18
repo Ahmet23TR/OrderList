@@ -16,10 +16,6 @@ productListItems.forEach((item) => {
     // Miktar giriş kutusuna odaklan
     document.getElementById("quantity").focus();
 
-    // Ürün giriş alanına kaydır
-    const quantityInput = document.getElementById("quantity");
-    quantityInput.scrollIntoView({ behavior: "smooth", block: "end" });
-
     // Seçilen ürünün kutucuğunun rengini güncelle
     updateProductBoxColor(item);
   });
@@ -181,3 +177,20 @@ quantityInput.addEventListener("input", function () {
     }
   }
 });
+
+const orderDetails = document.querySelector(".order-details");
+const header = document.querySelector(".header");
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) orderDetails.classList.add("sticky");
+  else orderDetails.classList.remove("sticky");
+};
+
+const observerOptions = {
+  root: null, // varsayılan olarak viewport'u izler
+  threshold: 0,
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, observerOptions);
+headerObserver.observe(orderDetails); // Hedef olarak orderDetails'i belirliyoruz

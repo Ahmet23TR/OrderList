@@ -218,3 +218,18 @@ footer {
   border-top: 1px solid #ccc; /* Ince gri çizgi */
   margin-top: 5px; /* Başlık ile çizgi arasında 5 piksel boşluk bırakır */
 }
+.order-details.sticky {
+  position: fixed;
+  top: 0; /* Ekranın üst kısmına hizalanır */
+  left: 0; /* Ekranın sol kısmına hizalanır */
+}
+.order-details {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-right: 50px;
+}
+
+.product-list {
+  margin-right: 690px; /* Sağdaki panelin genişliği + biraz boşluk */
+}
