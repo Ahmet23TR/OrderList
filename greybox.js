@@ -194,3 +194,27 @@ const observerOptions = {
 
 const headerObserver = new IntersectionObserver(stickyNav, observerOptions);
 headerObserver.observe(orderDetails); // Hedef olarak orderDetails'i belirliyoruz
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Ürünlerin bulunduğu container'a event delegation uygula
+  document
+    .querySelector(".product-container")
+    .addEventListener("input", function (e) {
+      // Eğer input event'i bir .quantity sınıfından geliyorsa
+      if (e.target && e.target.matches(".quantity")) {
+        const productItem = e.target.closest(".product-quantity-table");
+        const quantity = parseInt(e.target.value, 10);
+
+        // Miktarı kontrol et ve kutunun rengini güncelle
+        updateProductBoxColorBasedOnQuantity(productItem, quantity);
+      }
+    });
+});
+
+function updateProductBoxColorBasedOnQuantity(productItem, quantity) {
+  if (quantity > 0) {
+    productItem.style.backgroundColor = "#dbc310"; // Miktar varsa arka plan rengini değiştir
+  } else {
+    productItem.style.backgroundColor = ""; // Miktar yoksa arka plan rengini sıfırla
+  }
+}
