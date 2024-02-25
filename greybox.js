@@ -60,7 +60,7 @@ function addOrder() {
     "selected-product-name"
   ).textContent;
   const quantityInput = document.getElementById("quantity");
-  const quantity = parseInt(quantityInput.value);
+  const quantity = parseFloat(quantityInput.value);
 
   // Seçili ürün kontrolü
   if (selectedProductName === "---") {
@@ -68,7 +68,7 @@ function addOrder() {
   }
 
   // Geçerli miktar kontrolü
-  if (isNaN(quantity) || quantity <= 0) {
+  if (isNaN(quantity)) {
     alert("Lütfen geçerli bir miktar giriniz.");
     return;
   }
@@ -167,10 +167,10 @@ selectedDateInput.addEventListener("change", function () {
 // Miktar giriş kutusunun "input" olayını dinle
 quantityInput.addEventListener("input", function () {
   // Miktarı al
-  const quantity = parseInt(this.value);
+  const quantity = parseFloat(this.value);
 
   // Eğer miktar belirli bir eşik değerden büyükse, ürün kutusunun rengini değiştir
-  if (quantity > 0) {
+  if (quantity != 0) {
     const productItem = document.querySelector(".product-item.selected");
     if (productItem) {
       productItem.style.backgroundColor = "#dbc310"; // Simit kutusunun rengini sarı olarak değiştir
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Eğer input event'i bir .quantity sınıfından geliyorsa
       if (e.target && e.target.matches(".quantity")) {
         const productItem = e.target.closest(".product-quantity-table");
-        const quantity = parseInt(e.target.value, 10);
+        const quantity = parseFloat(e.target.value, 10);
 
         // Miktarı kontrol et ve kutunun rengini güncelle
         updateProductBoxColorBasedOnQuantity(productItem, quantity);
