@@ -169,11 +169,11 @@ quantityInput.addEventListener("input", function () {
   // Miktarı al
   const quantity = parseFloat(this.value);
 
-  // Eğer miktar belirli bir eşik değerden büyükse, ürün kutusunun rengini değiştir
+  // Eğer miktar 0 değilse, ürün kutusunun rengini değiştir
   if (quantity != 0) {
     const productItem = document.querySelector(".product-item.selected");
     if (productItem) {
-      productItem.style.backgroundColor = "#dbc310"; // Simit kutusunun rengini sarı olarak değiştir
+      productItem.style.backgroundColor = "#dbc310";
     }
   }
 });
