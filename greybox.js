@@ -218,3 +218,38 @@ function updateProductBoxColorBasedOnQuantity(productItem, quantity) {
     productItem.style.backgroundColor = ""; // Miktar yoksa arka plan rengini sıfırla
   }
 }
+
+function themeChange() {
+  // Body için tema değişikliği
+  document.body.classList.toggle("dark");
+
+  // product-quantity-table sınıfına sahip tüm elemanlar için tema değişikliği
+  var tables = document.getElementsByClassName("product-item");
+  for (var i = 0; i < tables.length; i++) {
+    tables[i].classList.toggle("dark");
+  }
+  var tables = document.getElementsByClassName("quantity-container");
+  for (var i = 0; i < tables.length; i++) {
+    tables[i].classList.toggle("dark");
+  }
+
+  // product-title sınıfına sahip tüm elemanlar için tema değişikliği
+  var titles = document.getElementsByClassName("product-title");
+  for (var i = 0; i < titles.length; i++) {
+    titles[i].classList.toggle("dark");
+  }
+
+  // selected-product sınıfına sahip tüm elemanlar için tema değişikliği
+  var selectedProducts = document.getElementsByClassName("selected-product");
+  for (var i = 0; i < selectedProducts.length; i++) {
+    selectedProducts[i].classList.toggle("dark");
+  }
+  var selectedProducts = document.getElementsByClassName("total");
+  for (var i = 0; i < selectedProducts.length; i++) {
+    selectedProducts[i].classList.toggle("dark");
+  }
+  var selectedProducts = document.getElementsByClassName("DerasHeader");
+  for (var i = 0; i < selectedProducts.length; i++) {
+    selectedProducts[i].classList.toggle("dark");
+  }
+}
