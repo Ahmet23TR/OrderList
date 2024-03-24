@@ -1,7 +1,7 @@
 // netlify/functions/get-products.js
 
 const mongoose = require("mongoose");
-const Product = require("../../models/product"); // Yolu modellerinizin bulunduğu konuma göre ayarlayın
+const Product = require("../../../models/product"); // Yolu modellerinizin bulunduğu konuma göre ayarlayın
 
 const handler = async (event, context) => {
   // MongoDB bağlantısını kur
