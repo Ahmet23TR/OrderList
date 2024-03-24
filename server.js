@@ -23,7 +23,7 @@ mongoose
   .then(() => console.log("MongoDB bağlantısı başarılı."))
   .catch((err) => console.error("MongoDB bağlantı hatası:", err));
 
-const Product = require("../models/product"); // Product modelinizi import edin
+const Product = require("./models/product"); // Product modelinizi import edin
 
 // Ürünleri listelemek için bir API yolu
 app.get("/api/products", async (req, res) => {
@@ -37,7 +37,7 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-const Order = require("../models/order");
+const Order = require("./models/order");
 
 // Yeni Sipariş Ekle
 app.post("/api/orders", async (req, res) => {
