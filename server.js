@@ -23,41 +23,62 @@ mongoose
   .then(() => console.log("MongoDB bağlantısı başarılı."))
   .catch((err) => console.error("MongoDB bağlantı hatası:", err));
 
-const Product = require("./models/product"); // Product modelinizi import edin
+let cachedDb = null;
 
-// Ürünleri listelemek için bir API yolu
-app.get("/api/products", async (req, res) => {
-  try {
-    const products = await Product.find(); // Tüm ürünleri veritabanından çek
-    res.json(products); // Ürün listesini JSON formatında döndür
-  } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Ürünler yüklenirken bir hata oluştu", error: error });
+async function connectToDatabase(uri) {
+  if (cachedDb && mongoose.connection.readyState === 1) {
+    return Promise.resolve(cachedDb);
   }
-});
 
-const Order = require("./models/order");
+  return mongoose
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((db) => {
+      cachedDb = db;
+      return cachedDb;
+    });
+}
 
-// Yeni Sipariş Ekle
-app.post("/api/orders", async (req, res) => {
-  const order = new Order(req.body); // req.body, sipariş detaylarını içermelidir.
-  await order.save();
-  res.status(201).send(order);
-});
+exports.handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false;
 
-// Ürün ekleme API yolu
-app.post("/api/products", (req, res) => {
-  const newProduct = new Product({
-    name: req.body.name,
+  await connectToDatabase(process.env.MONGO_URI);
+
+  const Product = require("./models/product"); // Product modelinizi import edin
+
+  // Ürünleri listelemek için bir API yolu
+  app.get("/api/products", async (req, res) => {
+    try {
+      const products = await Product.find(); // Tüm ürünleri veritabanından çek
+      res.json(products); // Ürün listesini JSON formatında döndür
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: "Ürünler yüklenirken bir hata oluştu", error: error });
+    }
   });
 
-  newProduct
-    .save()
-    .then((product) => res.status(201).json(product))
-    .catch((err) =>
-      res
-        .status(400)
-        .json({ message: "Ürün eklenirken bir hata oluştu", error: err })
-    );
-});
+  const Order = require("./models/order");
+
+  // Yeni Sipariş Ekle
+  app.post("/api/orders", async (req, res) => {
+    const order = new Order(req.body); // req.body, sipariş detaylarını içermelidir.
+    await order.save();
+    res.status(201).send(order);
+  });
+
+  // Ürün ekleme API yolu
+  app.post("/api/products", (req, res) => {
+    const newProduct = new Product({
+      name: req.body.name,
+    });
+
+    newProduct
+      .save()
+      .then((product) => res.status(201).json(product))
+      .catch((err) =>
+        res
+          .status(400)
+          .json({ message: "Ürün eklenirken bir hata oluştu", error: err })
+      );
+  });
+};
