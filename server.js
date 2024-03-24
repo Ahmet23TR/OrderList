@@ -1,15 +1,14 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
+
 const port = 3001;
+
+const cors = require("cors");
+app.use(cors());
 
 // Statik dosyaları sunmak için public klasörünü kullan
 app.use(express.static("public"));
-
-// Ürünleri listelemek için bir API yolu
-app.get("/api/products", (req, res) => {
-  // Ürün listesini döndür
-  res.json([{ name: "Ürün 1" }, { name: "Ürün 2" }]);
-});
 
 app.listen(port, () => {
   console.log(`Sunucu http://localhost:${port} adresinde çalışıyor.`);
@@ -24,15 +23,21 @@ mongoose
   .then(() => console.log("MongoDB bağlantısı başarılı."))
   .catch((err) => console.error("MongoDB bağlantı hatası:", err));
 
-const product = require("./models/product");
+const Product = require("./models/product"); // Product modelinizi import edin
 
-// Ürünleri Listele
+// Ürünleri listelemek için bir API yolu
 app.get("/api/products", async (req, res) => {
-  const products = await product.find();
-  res.json(products);
+  try {
+    const products = await Product.find(); // Tüm ürünleri veritabanından çek
+    res.json(products); // Ürün listesini JSON formatında döndür
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Ürünler yüklenirken bir hata oluştu", error: error });
+  }
 });
 
-const Order = require("./models/Order");
+const Order = require("./models/order");
 
 // Yeni Sipariş Ekle
 app.post("/api/orders", async (req, res) => {
@@ -45,8 +50,6 @@ app.post("/api/orders", async (req, res) => {
 app.post("/api/products", (req, res) => {
   const newProduct = new Product({
     name: req.body.name,
-    price: req.body.price,
-    description: req.body.description,
   });
 
   newProduct

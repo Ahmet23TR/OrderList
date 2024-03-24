@@ -152,18 +152,6 @@ function updateOrderTotal() {
   totalOrdersElement.textContent = totalOrders;
 }
 
-const selectedDateInput = document.getElementById("selected-date");
-
-// Tarih seçici değeri değiştiğinde
-selectedDateInput.addEventListener("change", function () {
-  // Seçilen tarihi al
-  const selectedDate = selectedDateInput.value;
-
-  // Alınan tarihi göster
-  const dateDisplay = document.getElementById("selected-date-display");
-  dateDisplay.textContent = selectedDate;
-});
-
 // Miktar giriş kutusunun "input" olayını dinle
 quantityInput.addEventListener("input", function () {
   // Miktarı al
@@ -279,9 +267,6 @@ document.getElementById("productForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Formun varsayılan gönderim işlemini engeller
 
   const productName = document.getElementById("productName").value;
-  const productPrice = document.getElementById("productPrice").value;
-  const productDescription =
-    document.getElementById("productDescription").value;
 
   // Ürün verilerini sunucuya gönder
   fetch("/api/products", {
@@ -291,8 +276,6 @@ document.getElementById("productForm").addEventListener("submit", function (e) {
     },
     body: JSON.stringify({
       name: productName,
-      price: productPrice,
-      description: productDescription,
     }),
   })
     .then((response) => response.json())
