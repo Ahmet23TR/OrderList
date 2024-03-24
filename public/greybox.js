@@ -242,11 +242,10 @@ function themeChange() {
   }
 }
 function fetchProducts() {
-  fetch("/api/products");
-  console
-    .log(products)
+  fetch("/api/products")
     .then((response) => response.json())
     .then((products) => {
+      console.log(products);
       const productList = document.querySelector(".product-container ul");
       productList.innerHTML = ""; // Listeyi temizle
       products.forEach((product) => {
