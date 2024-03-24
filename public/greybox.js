@@ -242,7 +242,9 @@ function themeChange() {
   }
 }
 function fetchProducts() {
-  fetch("/api/products")
+  fetch("/api/products");
+  console
+    .log(products)
     .then((response) => response.json())
     .then((products) => {
       const productList = document.querySelector(".product-container ul");
