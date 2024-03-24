@@ -1,0 +1,320 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3e9d2;
+  color: #5e503f;
+}
+
+footer {
+  background-color: #a9927d;
+  color: #f3e9d2;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.product-list,
+.order-details {
+  width: 45%;
+}
+
+.product-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-list h2,
+.order-details h2 {
+  text-align: center;
+  color: #4a5043;
+}
+
+.product-item {
+  background-color: #fff; /* Ürün kutusu arka plan rengi */
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.selected-product,
+.total {
+  margin-top: 35px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.selected-product input[type="number"] {
+  width: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.selected-product input[type="number"]:focus {
+  border-color: #4caf50;
+}
+
+.selected-product button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.selected-product button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-container {
+  display: grid;
+}
+
+.product-column {
+  flex: 1;
+}
+
+.product-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-item {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.quantity-container {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.product-item,
+.quantity-container {
+  background-color: #fff; /* Ürün kutusu arka plan rengi */
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.product-item.selected {
+  background-color: #4caf50; /* Seçilen ürünün arka plan rengi */
+  color: white; /* Seçilen ürünün metin rengi */
+}
+
+.product-quantity-table {
+  display: grid;
+  grid-template-columns: repeat(2, 20fr);
+}
+.order-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+  background-color: #45a049;
+}
+
+.select-date {
+  display: flex; /* Yan yana göstermek için flex kullan */
+  align-items: center; /* Dikeyde ortalamak için */
+  justify-content: center; /* Yatayda ortalamak için */
+  margin: 0 auto; /* Sayfa genişliği boyunca ortala */
+}
+
+.selected-date {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+}
+.selected-date-text {
+  padding: 11px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+}
+
+.select-date:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.product-item.highlight {
+  background-color: #dbc310; /* Sipariş girildiğinde ürün kutucuğunun rengi */
+}
+
+#logo {
+  width: 300px; /* Resmin genişliği */
+  height: 200px; /* Otomatik yükseklik ayarı */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.DerasHeader {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fefefe;
+  padding-bottom: 60px;
+}
+
+.header-content {
+  display: grid;
+  align-items: center;
+}
+
+.total {
+  background-color: #fefefe;
+}
+.selected-product {
+  background-color: #fefefe;
+  border-radius: 10px;
+}
+.DerasHeader h1 {
+  justify-content: center;
+  margin-top: 70px;
+  font-size: 2.5rem;
+  font-family: Cursive;
+  font-style: Lucida Handwriting;
+}
+.product-box {
+  background-color: #ffbc50;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.product-box:hover {
+  transform: scale(1.05);
+}
+
+.underline {
+  border: none;
+  border-top: 1px solid #ccc; /* Ince gri çizgi */
+  margin-top: 5px; /* Başlık ile çizgi arasında 5 piksel boşluk bırakır */
+}
+.order-details.sticky {
+  position: fixed;
+  top: 0; /* Ekranın üst kısmına hizalanır */
+  left: 0; /* Ekranın sol kısmına hizalanır */
+}
+.order-details {
+  position: fixed;
+  margin-top: 10000;
+  right: 0;
+  margin-right: 50px;
+  width: 45%;
+  z-index: 1000;
+}
+
+.product-list {
+  margin-right: 690px; /* Sağdaki panelin genişliği + biraz boşluk */
+}
+
+/**************************/
+/* Dark Theme*/
+/**************************/
+
+body.dark {
+  background-color: #333;
+}
+body.dark a {
+  color: #1e90ff;
+}
+.product-item.dark {
+  background-color: #333;
+  color: #fff;
+}
+.quantity-container.dark {
+  background-color: #333;
+  color: #fff;
+}
+.product-title.dark {
+  color: #fff;
+}
+.selected-product.dark {
+  background-color: #333;
+  color: #fff;
+}
+.total.dark {
+  background-color: #333;
+  color: #fff;
+}
+.DerasHeader.dark {
+  background-color: #333;
+  color: #fff;
+}
+/* Koyu tema için genel stil */
+body.dark .product-item {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Ürün seçildiğinde uygulanan stil, koyu tema aktifken */
+body.dark .product-item.selected {
+  background-color: #4caf50; /* Seçilen ürünün arka plan rengi */
+  color: white; /* Seçilen ürünün metin rengi */
+}
+
+/* Adet eklendiğinde uygulanan stil, koyu tema aktifken */
+body.dark .product-item.highlighted {
+  border-color: #dbc310;
+}
+
+/**************************/
+/* BELOW 944px (Tablets)*/
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 100%;
+  }
+
+  .product-list {
+    margin-right: 420px; /* Sağdaki panelin genişliği + biraz boşluk */
+  }
+
+  #logo {
+    width: 200px; /* Resmin genişliği */
+    height: 170px; /* Otomatik yükseklik ayarı */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
