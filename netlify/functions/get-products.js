@@ -1,9 +1,9 @@
 // netlify/functions/get-products.js
 const mongoose = require("mongoose");
-const Product = require("./models/product");
+const Product = require("../../../models/product");
 
 // MongoDB URI'nizi ortam değişkenlerine taşıyın.
-const uri = "mongodb+srv://Ahmet23TR:Ahmet2003@cluster0.oralavo.mongodb.net/";
+const uri = process.env.MONGODB_URI;
 
 exports.handler = async (event, context) => {
   // MongoDB'ye bağlan
