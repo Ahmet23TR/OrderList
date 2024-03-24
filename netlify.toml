@@ -6,3 +6,5 @@
   from = "/api/products"
   to = "/.netlify/functions/get-products"
   status = 200
+  force = true
+
