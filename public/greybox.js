@@ -20,6 +20,7 @@ productListItems.forEach((item) => {
     updateProductBoxColor(item);
   });
 });
+
 // Seçilen ürünün kutucuğunun rengini güncelleyen işlev
 function updateProductBoxColor(selectedItem) {
   // Diğer ürün öğelerini al
@@ -241,7 +242,7 @@ function themeChange() {
   }
 }
 function fetchProducts() {
-  fetch("/.netlify/functions/get-products")
+  fetch("/api/products")
     .then((response) => response.json())
     .then((products) => {
       const productList = document.querySelector(".product-container ul");
