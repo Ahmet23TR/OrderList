@@ -20,7 +20,6 @@ productListItems.forEach((item) => {
     updateProductBoxColor(item);
   });
 });
-
 // Seçilen ürünün kutucuğunun rengini güncelleyen işlev
 function updateProductBoxColor(selectedItem) {
   // Diğer ürün öğelerini al
