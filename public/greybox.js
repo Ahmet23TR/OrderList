@@ -242,7 +242,7 @@ function themeChange() {
   }
 }
 function fetchProducts() {
-  fetch("/api/products")
+  fetch("/.netlify/functions/get-products")
     .then((response) => response.json())
     .then((products) => {
       const productList = document.querySelector(".product-container ul");
