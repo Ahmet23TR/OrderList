@@ -3,7 +3,7 @@
    #5e503f - Kahverengi metin rengi (Ana metin rengi)
    #a9927d - Açık kahverengi footer arka plan rengi (Footer arka planı)
    #4caf50 - Yeşil, vurgulama ve buton arka plan rengi (Vurgulama/Başarılı işlemler)
-   #333 - Koyu gri, koyu tema arka plan ve metin rengi (Koyu tema için genel renk)
+   #212529, #495057 - Koyu gri, koyu tema arka plan ve metin rengi (Koyu tema için genel renk)
    #fff - Beyaz metin ve arka plan rengi (Genel vurgu ve seçilen öğeler için)
    #dbc310 - Sarı vurgu rengi (Highlight için kullanılan renk)
    #b83b5e - Hover durumunda tema değiştirme butonu
@@ -259,7 +259,10 @@ main {
 }
 
 .theme-button {
+  position: absolute;
   background-color: #f08a5d; /* Sıcak turuncu arka plan */
+  top: 10px;
+  right: 10px;
   color: white; /* Beyaz yazı rengi */
   padding: 10px 20px;
   border: none;
@@ -276,6 +279,10 @@ main {
   transform: scale(0.95); /* Butona basıldığında küçülme efekti */
 }
 
+.theme-button i {
+  margin-right: 5px;
+}
+
 /**************************/
 /* Dark Theme*/
 /**************************/
@@ -285,8 +292,9 @@ main {
 }
 
 /* Koyu tema genel arka plan ve metin renkleri */
-body.dark {
-  background-color: #333; /* Koyu gri arka plan */
+body.dark,
+.product-title.dark {
+  background-color: #212529; /* Koyu gri arka plan */
   color: #fff; /* Beyaz metin rengi */
 }
 
@@ -298,12 +306,11 @@ body.dark a {
 /* Koyu tema için ürün öğeleri */
 .product-item.dark,
 .quantity-container.dark,
-.product-title.dark,
 .selected-product.dark,
 .total.dark,
 .DerasHeader.dark,
 body.dark .product-item {
-  background-color: #333; /* Koyu gri arka plan */
+  background-color: #343a40; /* Koyu gri arka plan */
   color: #fff; /* Beyaz metin rengi */
 }
 
