@@ -191,7 +191,7 @@ function themeChange() {
   document.body.classList.toggle("dark");
   document
     .querySelectorAll(
-      ".product-item, .quantity-container, .product-title, .selected-product, .total, .DerasHeader"
+      ".product-item, .quantity-container, .product-title, .selected-product, .total, .DerasHeader, .selected-date"
     )
     .forEach((element) => element.classList.toggle("dark"));
 
