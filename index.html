@@ -368,15 +368,21 @@
         <div class="selected-product">
           <h3>Seçilen Ürün</h3>
           <hr class="underline">
-          <div class="product-box">
-            <p id="selected-product-name">---</p>
-        </div>        
-          <input type="number" id="quantity" placeholder="Adet"/>
-          <button onclick="addOrder()" class="order-button">Sipariş Ekle</button>
+          <div class="details">
+            <div class="product-box">
+              <p id="selected-product-name">---</p>
+            </div>        
+            <input type="number" id="quantity" placeholder="Adet"/>
+            <button onclick="addOrder()" class="order-button">Sipariş Ekle</button>
+            <div id="last-added-item" class="last-item">
+              <p>Son Eklenen Ürün: <span id="last-item-name">-</span></p>
+            </div>
+          </div>
           <div class="total">
             <h3>Toplam Sipariş Adedi</h3>
             <p id="total-orders">0</p>
-      </div>    
+          </div>    
+        </div>
     </main>
     <footer>
       <p>&copy; 2024 DERAS SWEETS&BAKERY. Tüm hakları saklıdır.</p>

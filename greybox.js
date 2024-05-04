@@ -41,13 +41,17 @@ let orderTable = {};
 
 // Sipariş ekleme işlevi
 function addOrder() {
-  const selectedProductName = document.getElementById(
+  var selectedProductName = document.getElementById(
     "selected-product-name"
-  ).textContent;
+  ).innerText;
+  var productQuantity = document.getElementById("quantity").value;
   const quantityInput = document.getElementById("quantity");
   const quantity = parseFloat(quantityInput.value);
 
   if (!isValidOrder(selectedProductName, quantity)) return;
+  document.getElementById(
+    "last-item-name"
+  ).textContent = `${selectedProductName} ${productQuantity} adet`;
 
   orderTable[selectedProductName] =
     (orderTable[selectedProductName] || 0) + quantity;

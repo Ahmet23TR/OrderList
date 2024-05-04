@@ -219,17 +219,23 @@ main {
   font-style: Lucida Handwriting;
 }
 .product-box {
+  width: 20%;
   background-color: #ffbc50;
   padding: 8px;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
   transition: transform 0.3s ease-in-out;
   display: inline-block;
   margin-right: 5px;
+}
+
+.details {
+  height: auto;
+  width: auto;
 }
 
 .product-box:hover {
@@ -282,6 +288,20 @@ main {
 
 .theme-button i {
   margin-right: 5px;
+}
+
+.last-item {
+  margin: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.last-item p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
 }
 
 /**************************/
