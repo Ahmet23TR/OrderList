@@ -226,7 +226,7 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: Arial, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: #333;
   transition: transform 0.3s ease-in-out;
   display: inline-block;
@@ -298,12 +298,6 @@ main {
   border-radius: 5px;
 }
 
-.last-item p {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-}
-
 /**************************/
 /* Dark Theme*/
 /**************************/
@@ -331,6 +325,7 @@ body.dark a {
 .selected-product.dark,
 .total.dark,
 .DerasHeader.dark,
+.last-item.dark,
 body.dark .product-item {
   background-color: #343a40; /* Koyu gri arka plan */
   color: #fff; /* Beyaz metin rengi */

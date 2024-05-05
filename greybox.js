@@ -38,6 +38,7 @@ function toggleHighlight(selectedItem) {
 
 // Ürün ve miktarını tutan nesne
 let orderTable = {};
+let orders = [];
 
 // Sipariş ekleme işlevi
 function addOrder() {
@@ -48,17 +49,43 @@ function addOrder() {
   const quantityInput = document.getElementById("quantity");
   const quantity = parseFloat(quantityInput.value);
 
-  if (!isValidOrder(selectedProductName, quantity)) return;
-  document.getElementById(
-    "last-item-name"
-  ).textContent = `${selectedProductName} ${productQuantity} adet`;
+  // Yeni siparişi oluştur
+  const newOrder = {
+    product: selectedProductName,
+    quantity: quantity,
+  };
+
+  // Siparişi dizinin başına ekle
+  orders.unshift(newOrder);
+
+  // Eğer sipariş sayısı üçten fazla ise, en eskisini çıkar
+  if (orders.length > 3) {
+    orders.pop();
+  }
 
   orderTable[selectedProductName] =
     (orderTable[selectedProductName] || 0) + quantity;
 
   updateProductDisplay(selectedProductName, orderTable[selectedProductName]);
+
   updateOrderTotal();
   resetOrderInputs();
+  updateLastOrders();
+}
+
+function updateLastOrders() {
+  // Son siparişleri göstermek için HTML elementlerini temizle
+  const lastAddedItems = document.getElementById("last-added-item");
+  lastAddedItems.innerHTML = "";
+
+  // Son üç siparişi ekrana yazdır
+  orders.slice(0, 3).forEach((order, index) => {
+    const orderElement = document.createElement("div");
+    orderElement.textContent = `${index + 1}. Ürün: ${order.product}, Adet: ${
+      order.quantity
+    }`;
+    lastAddedItems.appendChild(orderElement);
+  });
 }
 
 // Ürün gösterimini güncelleme işlevi
@@ -195,7 +222,7 @@ function themeChange() {
   document.body.classList.toggle("dark");
   document
     .querySelectorAll(
-      ".product-item, .quantity-container, .product-title, .selected-product, .total, .DerasHeader, .selected-date"
+      ".product-item, .quantity-container, .product-title, .selected-product, .total, .DerasHeader, .selected-date, .last-item"
     )
     .forEach((element) => element.classList.toggle("dark"));
 
